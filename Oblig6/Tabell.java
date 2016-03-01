@@ -1,32 +1,40 @@
-public class Tabell <E> implements AbstraktTabell<E>{
-	private E[] tabell;
+public class Tabell<E> implements AbstraktTabell<E>{
 
-	public Tabell(int storrelse){
-		this.tabell =  (E[]) new Object[storrelse];
+private E[] tabell;
+
+public Tabell(int storrelse){
+	tabell =  (E[]) new Object[storrelse];
+	this.tabell =  (E[]) new Object[storrelse];
+}
+
+public boolean settInnPaaIndeks(E e, int indeks){
+	if(tabell[indeks] == null) {
+		tabell[indeks] = e;
+		return true;
+	}else{
+		System.out.println("Plass ikke ledig.");
+		return false;
 	}
-
-	public boolean settInnPaaIndeks(E e, int indeks){
-		if(indeks > tabell.length){
-			System.out.println("Array ikke stor nok.");
-			return false;
-		}else if(tabell[indeks] != null){
-			System.out.println("Plass ikke tom.");
-			return false;
-		}else{
-			tabell[indeks] =  e;
-			return true;
-		}
-	}
-
-	public E returFraIndeks(int indeks){
+}
+public E finnFraIndeks(int indeks){
+	if(indeks < tabell.length) {
 		return tabell[indeks];
+	}else{
+		System.out.println("Element ikke funnet.");
+		return null;
 	}
-	public void iterate(){
-		int counter = 0;
-		for(E e : tabell){
-
-			System.out.println(tabell[counter]);
-			counter++;
+}
+public NodeIterator<E> iterator(){
+	Node foran = new Node();
+	for(int i = 0; i < tabell.length; i++) {
+		if(tabell[i] != null) {
+			Node nynode = new Node(tabell[i]);
+			nynode.settNeste(foran);
+			foran = nynode;
 		}
 	}
+
+	return new NodeIterator<E>(foran);
+}
+
 }
