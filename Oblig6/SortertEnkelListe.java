@@ -1,4 +1,4 @@
-class SortertEnkelListe<E> extends AbstraktSortertEnkelListe<E extends Comparable<E>>{
+class SortertEnkelListe<E extends Comparable<E> & Lik> implements AbstraktSortertEnkelListe<E>{
 
 	Node<E> hode, hale;
 
@@ -10,19 +10,14 @@ class SortertEnkelListe<E> extends AbstraktSortertEnkelListe<E extends Comparabl
 
 	public void settInnSortert(E e){
 		Node nynode = new Node(e);
-		Node temp = null;
+		Node temp = hode;
+
 		if(hode.getNeste() == hale){
 			hode.settNeste(nynode);
 			nynode.settNeste(hale);
 			return;
 		}
 
-		temp = hode;
-		while(temp.getNeste().hentInnhold().compareTo(nynode.hentInnhold()) < 0){
-			temp = temp.getNeste();
-		}
-		nynode.settNeste(temp.getNeste());
-		temp.settNeste(nynode);
 	}
 
 	public NodeIterator<E> iterator(){
@@ -30,15 +25,7 @@ class SortertEnkelListe<E> extends AbstraktSortertEnkelListe<E extends Comparabl
 	}
 
 	public E finnElementFraString(String sokestring){
-		if(!tom()){
-			Node temp = hode;
-			while(!(temp.getNeste().equals(hale))){
-				if(temp.hentInnhold().equals(sokestring)){
-					return temp.hentInnhold();
-				}
-			}
-		}
-
+		return null;
 	}
 
 	public boolean tom(){
