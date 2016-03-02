@@ -1,4 +1,4 @@
-class Node<E>{
+class Node<E extends Comparable<E>>{
 	private E innhold;
 	private Node neste;
 
@@ -20,5 +20,9 @@ class Node<E>{
 
 	public E hentInnhold(){
 		return this.innhold;
+	}
+
+	public int compareTo(E innhold){
+		return this.innhold.compareTo(innhold);
 	}
 }
