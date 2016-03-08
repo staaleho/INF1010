@@ -17,12 +17,12 @@ class SortertEnkelListe<E extends Comparable<E> & Lik> implements AbstraktSorter
 		}
 
 	public void settInnSortert(E e){
-		
+
 		Node<E> nynode = new Node<E>(e);
 		Node<E> tempnode = hode.getNeste();
 
 
-		if(size == 0){
+		if(hode.getNeste().equals(hale)){
 			nynode.settNeste(hale);
 			hode.settNeste(nynode);
 			foran = nynode;
@@ -45,7 +45,12 @@ class SortertEnkelListe<E extends Comparable<E> & Lik> implements AbstraktSorter
 
 		while(tempnode.harNeste()){
 			ettertemp = tempnode.getNeste();
-
+			//Sjekker om vi er i slutten av kjeden
+			if(ettertemp.equals(hale)){
+				nynode.settNeste(ettertemp);
+				tempnode.settNeste(nynode);
+				return;
+			}
 			if(nynode.hentInnhold().compareTo(ettertemp.hentInnhold()) <= 0){
 				nynode.settNeste(ettertemp);
 
@@ -53,7 +58,8 @@ class SortertEnkelListe<E extends Comparable<E> & Lik> implements AbstraktSorter
 
 				return;
 			}
-			ettertemp = ettertemp.getNeste();
+
+			//ettertemp = ettertemp.getNeste();
 			tempnode = tempnode.getNeste();
 
 		}
@@ -72,11 +78,21 @@ class SortertEnkelListe<E extends Comparable<E> & Lik> implements AbstraktSorter
 	}
 
 	public E finnElementFraString(String sokestring){
+		if(!tom()){
+			Node<E> tempnode = hode.getNeste();
+
+			while(tempnode != hale){
+				if(tempnode.hentInnhold().samme(sokestring)){
+					return tempnode.hentInnhold();
+				}
+				tempnode = tempnode.getNeste();
+			}
+		}
 		return null;
 	}
 
 	public boolean tom(){
-		return !(foran.harNeste());
+		return hode.equals(hale);
 	}
 
 }

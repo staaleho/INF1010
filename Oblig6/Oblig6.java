@@ -29,7 +29,6 @@ public class Oblig6{
 		sell.settInnSortert(staale);
 		Lege andreas = new Lege("Andreas");
 		sell.settInnSortert(andreas);
-
 		Lege julie = new Lege("Julie");
 		sell.settInnSortert(julie);
 		Lege finn = new Lege("Finn");
@@ -41,11 +40,19 @@ public class Oblig6{
 		Lege henrik = new Lege("Henrik");
 		sell.settInnSortert(henrik);
 
+
+		Lege tarje = new Lege("Tyrje");
+		sell.settInnSortert(tarje);
+
+
 		NodeIterator<Lege> itr2 = sell.iterator();
 
 		while(itr2.harNeste()){
 			System.out.println(itr2.neste());
 		}
+
+		System.out.println(sell.finnElementFraString("Finn"));
+		System.out.println(sell.finnElementFraString("Napoleon"));
 
 
 	}
