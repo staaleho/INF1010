@@ -1,19 +1,26 @@
 public class NodeIterator<E> implements Iterator<E>{
 
 	private Node<E> foran;
+	private Node<E> denne;
 
-	public NodeIterator(Node foran){
+	public NodeIterator(Node<E> foran){
 		this.foran = foran;
+		denne = foran.getNeste();
 	}
 
 	public E neste(){
-		E innhold = foran.hentInnhold();
-		foran = foran.getNeste();
+		E innhold = denne.hentInnhold();
+		denne = denne.getNeste();
 		return innhold;
 	}
 
 	public boolean harNeste(){
-		return foran.getNeste() != null;
+		return denne.hentInnhold() != null;
+	}
+
+	public E hentDenne(){
+		
+		return denne.hentInnhold();
 	}
 
 }

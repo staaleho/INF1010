@@ -1,4 +1,4 @@
-class Node<E> implements Comparable<E>{
+class Node<E>{
 	private E innhold;
 	private Node neste;
 
@@ -10,7 +10,7 @@ class Node<E> implements Comparable<E>{
 
 	}
 
-	public void settNeste(Node neste){
+	public void settNeste(Node<E> neste){
 		this.neste = neste;
 	}
 
@@ -19,10 +19,11 @@ class Node<E> implements Comparable<E>{
 	}
 
 	public E hentInnhold(){
-		return this.innhold;
+		return innhold;
 	}
 
-	public int compareTo(Node<E> node){
-		return 
+	public boolean harNeste(){
+		return this.neste != null;
 	}
+
 }

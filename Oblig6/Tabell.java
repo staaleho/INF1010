@@ -3,6 +3,7 @@ public class Tabell<E> implements AbstraktTabell<E>{
 	private E[] tabell;
 
 	public Tabell(int storrelse){
+		tabell =  (E[]) new Object[storrelse];
 		this.tabell =  (E[]) new Object[storrelse];
 	}
 
@@ -35,5 +36,7 @@ public class Tabell<E> implements AbstraktTabell<E>{
 
 		return new NodeIterator<E>(foran);
 	}
+
+	
 
 }
