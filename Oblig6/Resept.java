@@ -8,7 +8,7 @@ public class Resept{
 	protected int pris;
 
 
-    public Resept(Legemiddel reseptpaa, Lege utstedtav, Pasient utstedttil, int reit, int reseptnummer, int pris) {
+    public Resept(Legemiddel reseptpaa, Lege utstedtav, Pasient utstedttil, int reit, int pris) {
         this.reseptpaa = reseptpaa;
         this.utstedtav = utstedtav;
         this.utstedttil = utstedttil;
@@ -22,8 +22,10 @@ public class Resept{
    }
 
    public String toString(){
-      return "Legemiddel" + reseptpaa + System.lineSeparator() + "Utsteder: " +
-      "Pasient: " + System.lineSeparator() + "Reit: " + reit + System.lineSeparator() +
+      return "Legemiddel: " + reseptpaa.getNavn() + System.lineSeparator() +
+	  "Utsteder: " + utstedtav.getNavn() + System.lineSeparator() +
+	  "Pasient: " + utstedttil.toString() +  System.lineSeparator() +
+	  "Reit: " + reit + System.lineSeparator() +
 	  "Reseptnummer: " + reseptnummer;
    }
 

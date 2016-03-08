@@ -15,11 +15,10 @@ public class NodeIterator<E> implements Iterator<E>{
 	}
 
 	public boolean harNeste(){
-		return denne.hentInnhold() != null;
+		return denne.getNeste() != null;
 	}
 
 	public E hentDenne(){
-		
 		return denne.hentInnhold();
 	}
 

@@ -54,6 +54,18 @@ public class Oblig6{
 		System.out.println(sell.finnElementFraString("Finn"));
 		System.out.println(sell.finnElementFraString("Napoleon"));
 
+		EnkelReseptListe enkreslis = new EnkelReseptListe();
+
+		Pasient silje = new Pasient("Silje", "Bergen", "4545", "09091990");
+		Resept siljeresept = new Resept(norlevo, andreas, silje, 10, 100);
+		enkreslis.settInn(siljeresept);
+
+		NodeIterator<Resept> itr3 = enkreslis.iterator();
+		while(itr3.harNeste()){
+			System.out.println(itr3.neste().toString());
+		}
+
+
 
 	}
 }
