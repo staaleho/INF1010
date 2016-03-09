@@ -3,8 +3,8 @@ public class Pasient {
 	private String adresse;
 	private String postnr;
 	private String fnummer;
-	private static int pasientnummer;
-	private int dettepasientnummer;
+	static int pasientnummer = 0;
+	int dettepasientnummer = 0;
 
 
 	public Pasient(String navn, String adresse, String postnr, String fnummer) {
@@ -12,16 +12,17 @@ public class Pasient {
 		this.adresse = adresse;
 		this.postnr = postnr;
 		this.fnummer = fnummer;
-		this.dettepasientnummer = pasientnummer++;
+		pasientnummer++;
+		dettepasientnummer = pasientnummer;
 	}
 
 	public int getPasientNummer(){
-		return pasientnummer;
+		return dettepasientnummer;
 	}
 
 	public String toString(){
 		return "Navn: " + navn + System.lineSeparator() + "Adresse: " + adresse +
-		       System.lineSeparator() + "Pasientnummer: " + pasientnummer;
+		       System.lineSeparator() + "Pasientnummer: " + dettepasientnummer;
 	}
 
 	}

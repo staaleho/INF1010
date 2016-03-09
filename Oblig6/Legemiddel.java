@@ -1,7 +1,7 @@
 abstract class Legemiddel{
     protected String navn;
+	protected int pris;
 	protected static int legemiddelnummer = 0;
-    protected int pris;
     protected int dettelegemiddelnummer;
 	protected int virkestofftotalt;
 
@@ -11,7 +11,6 @@ abstract class Legemiddel{
 		this.virkestofftotalt = virkestofftotalt;
         dettelegemiddelnummer = legemiddelnummer;
 		legemiddelnummer++;
-
     }
 
 	public String getNavn(){

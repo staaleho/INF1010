@@ -1,4 +1,5 @@
 class EnkelReseptListe{
+
 	Node<Resept> hode = new Node<Resept>();
 	Node<Resept> hale = new Node<Resept>();
 
@@ -13,9 +14,18 @@ class EnkelReseptListe{
 
 	public void settInn(Resept nyresept){
 		Node<Resept> nynode = new Node<Resept>(nyresept);
+		if(erTom()){
+			nynode.settNeste(hode.getNeste());
 			hode.settNeste(nynode);
 			hale = nynode;
 			hale.settNeste(new Node<Resept>());
+		}else{
+			hale.settNeste(nynode);
+			nynode.settNeste(new Node<Resept>());
+			hale = nynode;
+		}
+
+
 	}
 
 	public Resept finnResept(int reseptnummer){

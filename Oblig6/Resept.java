@@ -12,13 +12,14 @@ public class Resept{
         this.reseptpaa = reseptpaa;
         this.utstedtav = utstedtav;
         this.utstedttil = utstedttil;
+		reseptnummer++;
         this.reit = reit;
-        dettereseptnummer = reseptnummer++;
+        dettereseptnummer = reseptnummer;
 		this.pris = pris;
 
     }
     public int getReseptnummer(){
-      return reseptnummer;
+      return dettereseptnummer;
    }
 
    public String toString(){
@@ -26,7 +27,7 @@ public class Resept{
 	  "Utsteder: " + utstedtav.getNavn() + System.lineSeparator() +
 	  "Pasient: " + utstedttil.toString() +  System.lineSeparator() +
 	  "Reit: " + reit + System.lineSeparator() +
-	  "Reseptnummer: " + reseptnummer;
+	  "Reseptnummer: " + dettereseptnummer;
    }
 
    public boolean erBlaa(){

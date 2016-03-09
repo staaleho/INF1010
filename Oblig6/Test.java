@@ -64,7 +64,7 @@ public static Resept nyResept(){
 	reseptprisinnint = Integer.parseInt(prisinn);
 
 	Resept nyresept = new Resept(reseptlegemiddel, reseptlege, reseptpasient,
-	reseptreitinnint, reseptprisinnint, reseptnummer);
+	reseptreitinnint, reseptprisinnint);
 
 	lopenrresept++;
 	return nyresept;
