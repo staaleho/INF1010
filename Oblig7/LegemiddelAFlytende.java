@@ -3,12 +3,12 @@ public class LegemiddelAFlytende extends Legemiddel implements Flytende{
     private double cm3iflaske;
     private double virkestofficm3;
 
-    public LegemiddelAFlytende(String navn, int pris, int virkestofftotalt,
-	int narkostyrke, double cm3iflaske, double virkestoff){
-        super(navn,pris, virkestofftotalt);
+    public LegemiddelAFlytende(String navn, int pris, double virkestofftotalt,
+	double cm3iflaske, double virkestofficm3, int narkostyrke){
+        super(navn, pris, virkestofftotalt);
         this.narkostyrke = narkostyrke;
 		this.cm3iflaske = cm3iflaske;
-        this.virkestofficm3 = virkestoff;
+        this.virkestofficm3 = virkestofficm3;
     }
 
     public int getNarkostyrke() {

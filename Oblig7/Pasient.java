@@ -3,6 +3,7 @@ public class Pasient {
 	private String adresse;
 	private String postnr;
 	private String fnummer;
+	private YngsteForstReseptListe pasientresepter = new YngsteForstReseptListe();
 	static int pasientnummer = 0;
 	int dettepasientnummer = 0;
 
@@ -23,6 +24,10 @@ public class Pasient {
 	public String toString(){
 		return "Navn: " + navn + System.lineSeparator() + "Adresse: " + adresse +
 		       System.lineSeparator() + "Pasientnummer: " + dettepasientnummer;
+	}
+
+	public void nyReseptPasient(Resept nyResept){
+		pasientresepter.settInnYngsteForst(nyResept);
 	}
 
 	}

@@ -3,9 +3,9 @@ abstract class Legemiddel{
 	protected int pris;
 	protected static int legemiddelnummer = 0;
     protected int dettelegemiddelnummer;
-	protected int virkestofftotalt;
+	protected double virkestofftotalt;
 
-    public Legemiddel(String navn, int pris, int virkestofftotalt){
+    public Legemiddel(String navn, int pris, double virkestofftotalt){
 		this.navn = navn;
         this.pris = pris;
 		this.virkestofftotalt = virkestofftotalt;
@@ -21,7 +21,7 @@ abstract class Legemiddel{
         return dettelegemiddelnummer;
     }
 
-    public int getVirkestoff() {
+    public double getVirkestoff() {
         return virkestofftotalt;
     }
 }
