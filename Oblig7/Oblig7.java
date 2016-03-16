@@ -7,17 +7,12 @@ class Oblig7{
 	SortertEnkelListe<Lege> legeliste = new SortertEnkelListe<Lege>();
 	Tabell<Pasient> pasienttabell = new Tabell<Pasient>(1000);
 
-
-
 	public static void main(String[] args) throws Exception{
 		Scanner filleser = new Scanner(new File("dataset.txt"));
 
 		while(filleser.hasNextLine()){
 			System.out.println(filleser.nextLine());
 		}
-
-
-
 	}
 
 	public void nyLege(String navn){
