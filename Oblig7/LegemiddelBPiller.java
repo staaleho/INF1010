@@ -3,8 +3,8 @@ public class LegemiddelBPiller extends Legemiddel implements Piller{
     private int pillerieske;
     private double virkestoffipille;
 
-    public LegemiddelBPiller(String navn, int pris, int virkestofftotalt,
-	int vanestyrke, int pillerieske, double virkestoffipille) {
+    public LegemiddelBPiller(String navn, int pris, double virkestofftotalt,
+	double virkestoffipille, int pillerieske, int vanestyrke) {
         super(navn, pris, virkestofftotalt);
         this.vanestyrke = vanestyrke;
 		this.pillerieske = pillerieske;

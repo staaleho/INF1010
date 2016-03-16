@@ -1,10 +1,21 @@
+import java.util.*;
+import java.io.File;
+
 class Oblig7{
 	Tabell<Legemiddel> legemiddeltabell = new Tabell<Legemiddel>(1000);
 	EnkelReseptListe reseptliste = new EnkelReseptListe();
 	SortertEnkelListe<Lege> legeliste = new SortertEnkelListe<Lege>();
 	Tabell<Pasient> pasienttabell = new Tabell<Pasient>(1000);
 
-	public static void main(String[] args) {
+
+
+	public static void main(String[] args) throws Exception{
+		Scanner filleser = new Scanner(new File("dataset.txt"));
+
+		while(filleser.hasNextLine()){
+			System.out.println(filleser.nextLine());
+		}
+
 
 
 	}
@@ -20,20 +31,20 @@ class Oblig7{
 	}
 
 	public void nyttLegeMiddel(String navn, String form, char type, int pris,
-	double virkestofftotalt, double virkestoffienhet, double mengdeavenheter, int styrke){
+	double virkestofftotalt, double virkestoffienhet, int mengdeavenheter, int styrke){
 		if(type == 'a'){
 			if(form.equals("mikstur")){
 				LegemiddelAFlytende nyttlegemiddel = new LegemiddelAFlytende(navn,
 				pris, virkestofftotalt, virkestoffienhet, mengdeavenheter, styrke);
 				legemiddeltabell.settInnPaaIndeks(nyttlegemiddel, nyttlegemiddel.getNummer());
-				break;
+				return;
 			}
 
 			if(form.equals("piller")){
 				LegemiddelAPiller nyttlegemiddel = new LegemiddelAPiller(navn,
 				pris, virkestofftotalt, virkestoffienhet, mengdeavenheter, styrke);
-				legemiddeltabell.settInnPaaIndeks(nyttlegemiddel, nyttLegeMiddel.getNummer());
-				break;
+				legemiddeltabell.settInnPaaIndeks(nyttlegemiddel, nyttlegemiddel.getNummer());
+				return;
 			}else{
 				System.out.println("Type A, men ikke pille eller mikstur");
 			}
@@ -43,15 +54,15 @@ class Oblig7{
 			if(form.equals("mikstur")){
 				LegemiddelBFlytende nyttlegemiddel = new LegemiddelBFlytende(navn,
 				pris, virkestofftotalt, virkestoffienhet, mengdeavenheter, styrke);
-				legemiddeltabell.settInnPaaIndeks(nyttlegemiddel, nyttLegeMiddel.getNummer());
-				break;
+				legemiddeltabell.settInnPaaIndeks(nyttlegemiddel, nyttlegemiddel.getNummer());
+				return;
 			}
 
 			if(form.equals("piller")){
 				LegemiddelBPiller nyttlegemiddel = new LegemiddelBPiller(navn,
 				pris, virkestofftotalt, virkestoffienhet, mengdeavenheter, styrke);
-				legemiddeltabell.settInnPaaIndeks(nyttlegemiddel, nyttLegeMiddel.getNummer());
-				break;
+				legemiddeltabell.settInnPaaIndeks(nyttlegemiddel, nyttlegemiddel.getNummer());
+				return;
 			}else{
 				System.out.println("Type B, men ikke pille eller mikstur");
 			}
