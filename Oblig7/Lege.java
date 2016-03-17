@@ -2,12 +2,12 @@ public class Lege implements Lik, HarAvtale, Comparable<Lege>{
    private String navn;
    private static int avtalenummer;
    private int detteavtalenummer;
-   private boolean avtalemedkomm;
+   private int avtalemedkomm;
    private EldsteForstReseptListe legeresepter = new EldsteForstReseptListe();
 
    public Lege(String navn){
       this.navn = navn;
-	  detteavtalenummer = avtalenummer++;
+	
    }
 
    public boolean samme(String sammenlign){
@@ -18,16 +18,16 @@ public class Lege implements Lik, HarAvtale, Comparable<Lege>{
       return "Navn: " + navn + ".";
    }
 
-   public boolean harAvtale(){
+   public int harAvtale(){
       return avtalemedkomm;
    }
 
    public void opprettAvtale(){
-	   avtalemedkomm = true;
+	   avtalemedkomm = 1;
    }
 
    public void putAvtalenummer(int avtalenummer){
-      detteavtalenummer = avtalenummer;
+      detteavtalenummer = avtalenummer++;
    }
 
    public String getNavn(){

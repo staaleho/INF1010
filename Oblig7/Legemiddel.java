@@ -24,4 +24,8 @@ abstract class Legemiddel{
     public double getVirkestoff() {
         return virkestofftotalt;
     }
+
+	public int getPris(){
+		return pris;
+	}
 }

@@ -1,4 +1,4 @@
 public interface HarAvtale{
-    public boolean harAvtale();
+    public int harAvtale();
     public int getAvtaleNummer();
 }

@@ -8,13 +8,14 @@ public class Pasient {
 	int dettepasientnummer = 0;
 
 
-	public Pasient(String navn, String adresse, String postnr, String fnummer) {
+	public Pasient(String navn,String fnummer, String adresse, String postnr) {
 		this.navn = navn;
 		this.adresse = adresse;
 		this.postnr = postnr;
 		this.fnummer = fnummer;
-		pasientnummer++;
 		dettepasientnummer = pasientnummer;
+		pasientnummer++;
+
 	}
 
 	public int getPasientNummer(){
@@ -22,12 +23,18 @@ public class Pasient {
 	}
 
 	public String toString(){
-		return "Navn: " + navn + System.lineSeparator() + "Adresse: " + adresse +
-		       System.lineSeparator() + "Pasientnummer: " + dettepasientnummer;
+		return "Navn: " + navn + System.lineSeparator()
+			+ "Adresse: " + adresse + System.lineSeparator()
+			+ "Postnummer: " + postnr + System.lineSeparator()
+			+ "Pasientnummer: " + dettepasientnummer;
 	}
 
 	public void nyReseptPasient(Resept nyResept){
 		pasientresepter.settInnYngsteForst(nyResept);
+	}
+
+	public String returNavn(){
+		return navn;
 	}
 
 	}

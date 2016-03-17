@@ -7,12 +7,7 @@ class SortertEnkelListe<E extends Comparable<E> & Lik> implements AbstraktSorter
         hode.settNeste(hale);
     }
 
-    public void settInn(E e) {
-        Node<E> nynode = new Node<E>(e);
-        nynode.settNeste(hode.getNeste());
-        hode.settNeste(nynode);
-        System.out.println("Satt inn " + nynode.hentInnhold());
-    }
+    
 
     public void settInnSortert(E e) {
 

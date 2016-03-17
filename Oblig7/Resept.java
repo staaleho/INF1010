@@ -25,17 +25,12 @@ public class Resept{
    public String toString(){
       return "Legemiddel: " + reseptpaa.getNavn() + System.lineSeparator() +
 	  "Utsteder: " + utstedtav.getNavn() + System.lineSeparator() +
-	  "Pasient: " + utstedttil.toString() +  System.lineSeparator() +
+	  "Pasient: " + utstedttil.returNavn() +  System.lineSeparator() +
 	  "Reit: " + reit + System.lineSeparator() +
 	  "Reseptnummer: " + dettereseptnummer;
    }
 
    public boolean erBlaa(){
-	   if(pris == 0){
-		   return true;
-	   }
-	   else{
-		   return false;
-	   }
+	   return (pris == 0);
    }
 }
