@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class NodeIterator<E> implements Iterator<E>{
 
 	private Node<E> foran;
@@ -20,6 +22,18 @@ public class NodeIterator<E> implements Iterator<E>{
 
 	public E hentDenne(){
 		return denne.hentInnhold();
+	}
+
+	public boolean hasNext(){
+		return denne.getNeste() != null;
+	}
+
+	public E next(){
+		return denne.hentInnhold();
+	}
+
+	public void remove(){
+
 	}
 
 }

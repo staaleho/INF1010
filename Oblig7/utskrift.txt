@@ -1,0 +1,52 @@
+# Personer (nr, navn, fnr, adresse, postnr)
+0, Jens Hans Olsen, Veigata 9, 1323
+1, Petrolina Swiq, Pillestedet 49, 0789
+2, Sven Svendsen, Storgata 67, 5341
+3, Juni Olsen, BlÃ¥bÃ¦rstien 423b, 1332
+4, Pernille Pillebruker, Slottspark 1, 0412
+5, Johan-Niclas Ingmarson, Kokveien 782, 4502
+6, Kari Lise Krokstubbakken, Krokstubbakken 1, 7832
+7, Ane Rask, Akebakken 7, 3522
+8, Arne Seberg, Akebakken 7, 3522
+9, Anna Rask Seberg, Akebakken 7, 3522
+10, Inna Tharaldsrud, Jordstjerneveien 17, 1283
+
+# Legemidler (nr, navn, form, type, pris, antall/mengde, virkestoff [, styrke])
+0, Predizol, mikstur, a, 450, 50, 75, 8
+1, Paralgin, pille, b, 125, 4, 100, 5
+2, Peptidin, pille, a, 250, 10, 100, 10
+3, Cetrizin, pille, c, 390, 100, 0
+4, Lidokain, mikstur, b, 150, 100, 100, 2
+5, Pankuron, mikstur, c, 567, 50, 0
+
+# Leger (navn, avtalenr / 0 hvis ingen avtale)
+Dr. Avery, 0
+Dr. Grey, 0
+Dr. Hillestad Lovold, 0
+Dr. Shepherd, 0
+Dr. Yang, 0
+
+# Resepter (nr, hvit/bla, persNummer, legeNavn, legemiddelNummer, reit)
+0, blaa, Dr. Hillestad Lovold, 2, 2
+1, blaa, Dr. Avery, 1, 3
+2, hvit, Dr. Yang, 2, 0
+3, hvit, Dr. Grey, 2, 0
+4, hvit, Dr. Grey, 2, 2
+5, blaa, Dr. Shepherd, 2, 4
+6, hvit, Dr. Shepherd, 0, 4
+7, blaa, Dr. Shepherd, 3, 3
+8, blaa, Dr. Avery, 5, 1
+9, blaa, Dr. Avery, 4, 1
+10, hvit, Dr. Hillestad Lovold, 5, 2
+11, blaa, Dr. Hillestad Lovold, 3, 2
+12, hvit, Dr. Yang, 0, 1
+13, hvit, Dr. Hillestad Lovold, 2, 0
+14, blaa, Dr. Hillestad Lovold, 5, 0
+15, hvit, Dr. Shepherd, 3, 0
+16, hvit, Dr. Avery, 0, 1
+17, blaa, Dr. Avery, 4, 0
+18, blaa, Dr. Hillestad Lovold, 4, 5
+19, hvit, Dr. Yang, 0, 89
+20, blaa, Dr. Yang, 5, 9
+
+# Slutt

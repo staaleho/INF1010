@@ -4,6 +4,7 @@ abstract class Legemiddel{
 	protected static int legemiddelnummer = 0;
     protected int dettelegemiddelnummer;
 	protected double virkestofftotalt;
+	protected String fildata = "";
 
     public Legemiddel(String navn, int pris, double virkestofftotalt){
 		this.navn = navn;
@@ -27,5 +28,13 @@ abstract class Legemiddel{
 
 	public int getPris(){
 		return pris;
+	}
+
+	public void setFilData(String str){
+		this.fildata = str;
+	}
+
+	public String getFilData(){
+		return this.fildata;
 	}
 }

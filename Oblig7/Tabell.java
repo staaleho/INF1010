@@ -26,17 +26,22 @@ public class Tabell<E> implements AbstraktTabell<E>{
 	}
 	public NodeIterator<E> iterator(){
 		Node foran = new Node();
-		for(int i = 0; i < tabell.length; i++) {
+		Node hale = new Node();
+		Node nynode = new Node(tabell[0]);
+		foran.settNeste(nynode);
+		nynode.settNeste(hale);
+		for(int i = 1; i < tabell.length; i++) {
 			if(tabell[i] != null) {
-				Node nynode = new Node(tabell[i]);
-				nynode.settNeste(foran);
-				foran = nynode;
+				Node nynode2 = new Node(tabell[i]);
+				nynode.settNeste(nynode2);
+				nynode = nynode2;
+				nynode.settNeste(hale);
 			}
 		}
 
 		return new NodeIterator<E>(foran);
 	}
 
-	
+
 
 }
