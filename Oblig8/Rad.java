@@ -8,7 +8,7 @@ class Rad{
     protected ArrayList<Integer> verdierirad = new ArrayList<>();
 
     public Rad(int radid, int antalltall){
-        this.setRadid(radid);
+        this.radid = radid;
         this.antalltall = antalltall;
         for(int i = 1; i < (antalltall + 1); i++){
             verdierirad.add(i);

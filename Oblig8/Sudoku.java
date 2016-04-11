@@ -63,7 +63,6 @@ class Sudoku {
                 innlestfil[i] = tempchararray;
                 i++;
             }
-
             char[][] ferdigbrett = new char[i][i];
 
             while(j < i){

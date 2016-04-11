@@ -105,6 +105,10 @@ class Brett{
 
         }*/
         rutearray[2][2].getAllRuteInfo();
+        System.out.println("Mulige tall er: ");
+        for(int i : rutearray[2][2].finnAlleMuligeTall()){
+            System.out.println(i);
+        }
     }
 
     public void opprettDataStruktur(char[][] chararray){
