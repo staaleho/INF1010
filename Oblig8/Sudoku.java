@@ -1,9 +1,12 @@
 import java.util.*;
 import java.io.*;
+import java.util.ArrayList;
+
+
 
 class Sudoku {
-   protected static char TOM_RUTE_TEGN = '.';
-    protected static Brett brett;
+    static char TOM_RUTE_TEGN = '.';
+     static Brett brett;
 
 
     public static void main(String[] args) {

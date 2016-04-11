@@ -1,4 +1,4 @@
-class EnkelReseptListe{
+class EnkelReseptListe<Resept>{
 
 	Node<Resept> hode = new Node<Resept>();
 	Node<Resept> hale = new Node<Resept>();
@@ -48,7 +48,7 @@ class EnkelReseptListe{
 		throw new IllegalArgumentException("Resept finnes ikke.");
 	}
 
-	public NodeIterator<Resept> iterator(){
-		return new NodeIterator<Resept>(hode);
+	public Iterator iterator(){
+		return new Iterator(hode);
 	}
 }

@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.util.ArrayList;
 
 class Brett{
     protected int riboks;
@@ -197,59 +198,4 @@ class Brett{
         }
     }
 
-    protected int getRiboks() {
-        return riboks;
-    }
-
-    protected void setRiboks(int riboks) {
-        this.riboks = riboks;
-    }
-
-    protected int getKiboks() {
-        return kiboks;
-    }
-
-    protected void setKiboks(int kiboks) {
-        this.kiboks = kiboks;
-    }
-
-    protected int getBrettstorrelse() {
-        return brettstorrelse;
-    }
-
-    protected void setBrettstorrelse(int brettstorrelse) {
-        this.brettstorrelse = brettstorrelse;
-    }
-
-    protected Rute[][] getRutearray() {
-        return rutearray;
-    }
-
-    protected void setRutearray(Rute[][] rutearray) {
-        this.rutearray = rutearray;
-    }
-
-    protected ArrayList<Rad> getRader() {
-        return rader;
-    }
-
-    protected void setRader(ArrayList<Rad> rader) {
-        this.rader = rader;
-    }
-
-    protected ArrayList<Kolonne> getKolonner() {
-        return kolonner;
-    }
-
-    protected void setKolonner(ArrayList<Kolonne> kolonner) {
-        this.kolonner = kolonner;
-    }
-
-    protected ArrayList<Boks> getBokser() {
-        return bokser;
-    }
-
-    protected void setBokser(ArrayList<Boks> bokser) {
-        this.bokser = bokser;
-    }
 }

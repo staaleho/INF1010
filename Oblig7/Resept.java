@@ -53,4 +53,17 @@ public class Resept{
    public Pasient getReseptTil(){
 	   return utstedttil;
    }
+
+   public int getPris(){
+	   return pris;
+   }
+
+   public boolean reduserReit(){
+	   if(reit > 0){
+		   reit--;
+		   return true;
+	   }else{
+		   return false;
+	   }
+   }
 }

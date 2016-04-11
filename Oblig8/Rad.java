@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.util.ArrayList;
 
 class Rad{
     protected int radid;
@@ -25,30 +26,6 @@ class Rad{
     }
 
     public int getRadId(){
-        return getRadid();
-    }
-
-    public int getRadid() {
         return radid;
-    }
-
-    public void setRadid(int radid) {
-        this.radid = radid;
-    }
-
-    public int getAntalltall() {
-        return antalltall;
-    }
-
-    public void setAntalltall(int antalltall) {
-        this.antalltall = antalltall;
-    }
-
-    public ArrayList<Integer> getVerdierirad() {
-        return verdierirad;
-    }
-
-    public void setVerdierirad(ArrayList<Integer> verdierirad) {
-        this.verdierirad = verdierirad;
     }
 }

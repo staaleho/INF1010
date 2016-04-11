@@ -19,7 +19,7 @@ class SortertEnkelListe<E extends Comparable<E> & Lik> implements AbstraktSorter
         Node<E> nynode = new Node<E>(e);
         Node<E> tempnode = hode.getNeste();
 
-        //Hvis hale kommer etter neste er listen tom.
+        //Hvis hale kommer etter next er listen tom.
         if (hode.getNeste().equals(hale)) {
             nynode.settNeste(hale);
             hode.settNeste(nynode);
@@ -33,7 +33,7 @@ class SortertEnkelListe<E extends Comparable<E> & Lik> implements AbstraktSorter
         }
 
         Node<E> ettertemp = new Node<E>();
-        while (tempnode.harNeste()) {
+        while (tempnode.hasNext()) {
             ettertemp = tempnode.getNeste();
             //Sjekker om vi er i slutten av kjeden
             if (ettertemp.equals(hale)) {

@@ -21,6 +21,7 @@
 
 # Leger (navn, avtalenr / 0 hvis ingen avtale)
 Dr. Avery, 0
+Dr. Bendik Bendiksen, 0
 Dr. Grey, 0
 Dr. Hillestad Lovold, 0
 Dr. Shepherd, 0

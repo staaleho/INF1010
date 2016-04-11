@@ -61,6 +61,10 @@ public class Pasient {
 		return fnummerint;
 	}
 
+	public String getPersonNummerString(){
+		return fnummer;
+	}
+
 	public void getBlaaResepter(){
 		NodeIterator<Resept> resepter = pasientresepter.iterator();
 		while(resepter.harNeste()){
@@ -85,6 +89,13 @@ public class Pasient {
  	   }
 
 	   return antallnarkoresepter;
+	}
+
+	public void alleResepter(){
+		NodeIterator<Resept> resepter = pasientresepter.iterator();
+		while(resepter.harNeste()){
+			System.out.println(resepter.neste());
+		}
 	}
 
 

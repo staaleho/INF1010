@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.util.ArrayList;
 
 class Kolonne{
     protected int kolid;
@@ -28,28 +29,4 @@ class Kolonne{
         return kolid;
     }
 
-
-    protected int getKolid() {
-        return kolid;
-    }
-
-    protected void setKolid(int kolid) {
-        this.kolid = kolid;
-    }
-
-    protected int getAntalltall() {
-        return antalltall;
-    }
-
-    protected void setAntalltall(int antalltall) {
-        this.antalltall = antalltall;
-    }
-
-    protected ArrayList<Integer> getVerdierikol() {
-        return verdierikol;
-    }
-
-    protected void setVerdierikol(ArrayList<Integer> verdierikol) {
-        this.verdierikol = verdierikol;
-    }
 }

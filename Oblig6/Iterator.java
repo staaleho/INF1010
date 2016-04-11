@@ -1,4 +1,4 @@
 interface Iterator <E>{
-	public boolean harNeste();
-	public E neste();
+	public boolean hasNext();
+	public E next();
 }

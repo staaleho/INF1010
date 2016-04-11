@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.util.ArrayList;
 
 class Rute {
     protected int tall;
@@ -89,35 +90,6 @@ class Rute {
         }
 
         return intarray;
-    }
-
-
-    protected void setTall(int tall) {
-        this.tall = tall;
-    }
-
-    protected void setRad(Rad rad) {
-        this.rad = rad;
-    }
-
-    protected void setKolonne(Kolonne kolonne) {
-        this.kolonne = kolonne;
-    }
-
-    protected int getBrettstorrelse() {
-        return brettstorrelse;
-    }
-
-    protected void setBrettstorrelse(int brettstorrelse) {
-        this.brettstorrelse = brettstorrelse;
-    }
-
-    protected ArrayList<Integer> getVerdierirute() {
-        return verdierirute;
-    }
-
-    protected void setVerdierirute(ArrayList<Integer> verdierirute) {
-        this.verdierirute = verdierirute;
     }
 }
 

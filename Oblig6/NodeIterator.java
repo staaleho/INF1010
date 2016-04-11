@@ -8,13 +8,13 @@ public class NodeIterator<E> implements Iterator<E>{
 		denne = foran.getNeste();
 	}
 
-	public E neste(){
+	public E next(){
 		E innhold = denne.hentInnhold();
 		denne = denne.getNeste();
 		return innhold;
 	}
 
-	public boolean harNeste(){
+	public boolean hasNext(){
 		return denne.getNeste() != null;
 	}
 

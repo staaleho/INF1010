@@ -1,6 +1,6 @@
 class Node<E>{
 	private E innhold;
-	private Node neste;
+	private Node next;
 
 	public Node (E innhold){
 		this.innhold = innhold;
@@ -10,20 +10,20 @@ class Node<E>{
 
 	}
 
-	public void settNeste(Node<E> neste){
-		this.neste = neste;
+	public void settNeste(Node<E> next){
+		this.next = next;
 	}
 
 	public Node getNeste(){
-		return this.neste;
+		return this.next;
 	}
 
 	public E hentInnhold(){
 		return innhold;
 	}
 
-	public boolean harNeste(){
-		return this.neste != null;
+	public boolean hasNext(){
+		return this.next != null;
 	}
 
 }

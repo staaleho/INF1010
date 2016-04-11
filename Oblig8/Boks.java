@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.util.ArrayList;
 
 class Boks{
     protected ArrayList<Integer> bruktetall = new ArrayList<Integer>();
@@ -72,75 +73,5 @@ class Boks{
         return verdieriboks;
     }
 
-    protected ArrayList<Integer> getBruktetall() {
-        return bruktetall;
-    }
 
-    protected void setBruktetall(ArrayList<Integer> bruktetall) {
-        this.bruktetall = bruktetall;
-    }
-
-    protected int getRader() {
-        return rader;
-    }
-
-    protected void setRader(int rader) {
-        this.rader = rader;
-    }
-
-    protected int getBoksid() {
-        return boksid;
-    }
-
-    protected void setBoksid(int boksid) {
-        this.boksid = boksid;
-    }
-
-    protected int getRiboks() {
-        return riboks;
-    }
-
-    protected void setRiboks(int riboks) {
-        this.riboks = riboks;
-    }
-
-    protected int getKiboks() {
-        return kiboks;
-    }
-
-    protected void setKiboks(int kiboks) {
-        this.kiboks = kiboks;
-    }
-
-    protected int getAntalltall() {
-        return antalltall;
-    }
-
-    protected void setAntalltall(int antalltall) {
-        this.antalltall = antalltall;
-    }
-
-    protected Rute[][] getDisseverdier() {
-        return disseverdier;
-    }
-
-    protected void setDisseverdier(Rute[][] disseverdier) {
-        this.disseverdier = disseverdier;
-    }
-
-    protected Rute getNullrute() {
-        return nullrute;
-    }
-
-    protected void setNullrute(Rute nullrute) {
-        this.nullrute = nullrute;
-    }
-
-    protected ArrayList<Integer> getVerdieriboks() {
-        return verdieriboks;
-    }
-
-    protected void setVerdieriboks(ArrayList<Integer> verdieriboks) {
-        this.verdieriboks = verdieriboks;
-    }
 }

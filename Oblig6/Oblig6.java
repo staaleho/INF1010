@@ -13,8 +13,8 @@ public class Oblig6{
 		tab.settInnPaaIndeks(penicilin, 4);
 
 		NodeIterator<Legemiddel> itr = tab.iterator();
-		while(itr.harNeste()){
-			Legemiddel temp = itr.neste();
+		while(itr.hasNext()){
+			Legemiddel temp = itr.next();
 			System.out.println(temp.getNavn());
 		}
 
@@ -42,8 +42,8 @@ public class Oblig6{
 
 		NodeIterator<Lege> itr2 = sell.iterator();
 
-		while(itr2.harNeste()){
-			System.out.println(itr2.neste());
+		while(itr2.hasNext()){
+			System.out.println(itr2.next());
 		}
 
 		EnkelReseptListe enkreslis = new EnkelReseptListe();
@@ -63,9 +63,9 @@ public class Oblig6{
 		enkreslis.settInn(liveresept);
 
 
-		NodeIterator<Resept> itr3 = enkreslis.iterator();
-		while(itr3.harNeste()){
-			System.out.println(itr3.neste().toString());
+		Iterator itr3 = enkreslis.iterator();
+		while(itr3.hasNext()){
+			System.out.println(itr3.next().toString());
 		}
 
 		enkreslis.finnResept(3);
@@ -77,9 +77,9 @@ public class Oblig6{
 		eldstfrst.settInnEldsteForst(liveresept);
 
 
-		NodeIterator<Resept> itr4 = eldstfrst.iterator();
-		while(itr4.harNeste()){
-			System.out.println(itr4.neste().toString());
+		Iterator itr4 = eldstfrst.iterator();
+		while(itr4.hasNext()){
+			System.out.println(itr4.next().toString());
 
 		}
 
@@ -90,9 +90,9 @@ public class Oblig6{
 		yngstforst.settInnYngsteForst(liveresept);
 
 
-		NodeIterator<Resept> itr5 = yngstforst.iterator();
-		while(itr5.harNeste()){
-			System.out.println(itr5.neste().toString());
+		Iterator itr5 = yngstforst.iterator();
+		while(itr5.hasNext()){
+			System.out.println(itr5.next().toString());
 		}
 	}
 }
