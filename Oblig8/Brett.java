@@ -17,8 +17,12 @@ class Brett{
         this.riboks = riboks;
         this.kiboks = kiboks;
         brettstorrelse = riboks * kiboks;
-        opprettDataStruktur(nyttbrett);
-
+        try{
+            opprettDataStruktur(nyttbrett);
+        }catch (NumberFormatException n){
+            System.out.println("Systemet avslutter pga ulovlig tegn.");
+            System.exit(0);
+        }
 
     }
 
@@ -30,7 +34,7 @@ class Brett{
         TOM_RUTE_TEGN = tomRuteTegn;
     }
 
-    public void skrivBrett(){
+    public void skrivBrett() {
         int radteller = 0;
         int kolonneteller = 0;
         int understrekteller = -1;
@@ -111,7 +115,7 @@ class Brett{
         }
     }
 
-    public void opprettDataStruktur(char[][] chararray){
+    public void opprettDataStruktur(char[][] chararray) throws NumberFormatException{
         for(int radid = 0; radid < brettstorrelse; radid++){
             Rad temprad = new Rad(radid, brettstorrelse);
             rader.add(temprad);
@@ -138,11 +142,26 @@ class Brett{
         rutearray = new Rute[brettstorrelse][brettstorrelse];
 
         int bokstall = 0;
+        int charteller = 0;
 
         Boks nyboks = bokser.get(0);
 
         while(rad < rutearray.length){
             for(char c : chararray[rad]){
+                charteller++;
+                if(tegnTilVerdi(c) > brettstorrelse){
+                    System.out.println("For stort for dette brettet.");
+                    throw new NumberFormatException();
+                }
+                else if(tegnTilVerdi(c) < 0){
+                    System.out.println("Ugyldig tegn.");
+                    throw new NumberFormatException();
+                }
+                else if(charteller > (brettstorrelse * brettstorrelse)){
+                    System.out.println("For mange tegn.");
+                    throw new NumberFormatException();
+                }
+
                 Rad temprad = rader.get(rad);
                 Kolonne tempkol = kolonner.get(kol);
                 Rute temprute = new Rute(tegnTilVerdi(c), temprad, tempkol, brettstorrelse);

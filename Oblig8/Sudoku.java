@@ -51,7 +51,7 @@ class Sudoku {
             kiboks = Integer.parseInt(buffreader.readLine());
 
             brettstorrelse = (riboks * kiboks);
-            if(brettstorrelse > maksstorrelse){
+            if((brettstorrelse * brettstorrelse) > maksstorrelse){
                 throw new IndexOutOfBoundsException();
             }
 
@@ -74,7 +74,7 @@ class Sudoku {
             nyttbrett.skrivBrett();
 
         }catch (IOException e){
-            System.out.println("IOException.");
+            System.out.println("Filen finnes ikke.");
         }catch (ArrayIndexOutOfBoundsException ar){
             System.out.println("Array Exception.");
         }catch (NumberFormatException nfe){
