@@ -1,15 +1,16 @@
+import java.util.*;
+import java.io.*;
+
 class Sudoku {
-    static char TOM_RUTE_TEGN = '.';
-    static Brett brett;
+   protected static char TOM_RUTE_TEGN = '.';
+    protected static Brett brett;
 
 
     public static void main(String[] args) {
-
-        lesFraFil();
-
+        lesFil();
     }
 
-    static private void lesFraFil() {
+    static private void lesFil() {
         try {
             findFile();
         } catch (FileNotFoundException e) {
@@ -23,9 +24,11 @@ class Sudoku {
         int counter = 0;
         int kbrtall;
         int brettstorrelse;
+        int hoyestetall = 0;
+        int maksstorrelse = 64;
         Reader reader;
         Scanner filscanner;
-
+        Brett nyttbrett;
 
         Scanner in = new Scanner(System.in);
         System.out.println("Hvilken fil vil du lese fra?");
@@ -36,43 +39,46 @@ class Sudoku {
             BufferedReader buffreader = new BufferedReader(fis);
             int character;
             int totruter = 0;
-            while((character = fis.read()) != -1) {
+            char[][] innlestfil = new char[63][63];
+            char[] tempchararray;
 
-                try {
-                    counter++;
-                    if(counter == 1 && character != -1){
-                        riboks = tegnTilVerdi((char) character);
-                        System.out.println("riboks er " + riboks);
-                    }
-                    if(counter == 3 && character != -1){
-                        kiboks = tegnTilVerdi((char) character);
-                        System.out.println("kiboks er " + kiboks);
-                        System.out.println("character er " + character);
-                        //Brett brett = new Brett(riboks, kiboks);
-                        totruter = riboks * kiboks;
-                    }
+            String s;
+            riboks = Integer.parseInt(buffreader.readLine());
 
-                    System.out.println(counter + " teller");
-                    System.out.println("character er " + character + ", totruter er " + totruter);
-                    System.out.println("tegn til verdi " + tegnTilVerdi((char) character));
-                    System.out.println(verdiTilTegn(tegnTilVerdi((char) character), TOM_RUTE_TEGN));
-                    if(tegnTilVerdi((char) character) > totruter){
-                        throw new IllegalArgumentException("meek");
-                    }
-                    //char ch = verdiTilTegn(fis.read(), TOM_RUTE_TEGN);
+            kiboks = Integer.parseInt(buffreader.readLine());
 
-                }
-                catch (UgyldigVerdiUnntak uvu) {
-                    System.out.println("Ugyldig verdi");
-                    //System.out.println(fis.read());
-                }
-
-                catch (IllegalArgumentException iae){
-                    System.out.println("Verdien er for stor for brettet");
-                }
+            brettstorrelse = (riboks * kiboks);
+            if(brettstorrelse > maksstorrelse){
+                throw new IndexOutOfBoundsException();
             }
+
+            int i = 0;
+            int j = 0;
+            while((s = buffreader.readLine()) != null) {
+
+                tempchararray = s.toCharArray();
+                innlestfil[i] = tempchararray;
+                i++;
+            }
+
+            char[][] ferdigbrett = new char[i][i];
+
+            while(j < i){
+                ferdigbrett[j] = innlestfil[j];
+                j++;
+            }
+
+            nyttbrett = new Brett(riboks, kiboks, ferdigbrett);
+            nyttbrett.skrivBrett();
+
         }catch (IOException e){
-            System.out.println("IOException");
+            System.out.println("IOException.");
+        }catch (ArrayIndexOutOfBoundsException ar){
+            System.out.println("Array Exception.");
+        }catch (NumberFormatException nfe){
+            System.out.println("Ugyldig tall funnet.");
+        }catch(IndexOutOfBoundsException ioobe){
+            System.out.println("Brettet er for stort.");
         }
     }
 
