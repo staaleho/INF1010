@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 class Sudoku {
     static char TOM_RUTE_TEGN = '.';
-     static Brett brett;
+    static Brett brett;
 
 
     public static void main(String[] args) {
