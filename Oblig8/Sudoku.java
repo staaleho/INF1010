@@ -51,7 +51,7 @@ class Sudoku {
             kiboks = Integer.parseInt(buffreader.readLine());
 
             brettstorrelse = (riboks * kiboks);
-            if((brettstorrelse * brettstorrelse) > maksstorrelse){
+            if((brettstorrelse * brettstorrelse) > (maksstorrelse * maksstorrelse)){
                 throw new IndexOutOfBoundsException();
             }
 
@@ -63,6 +63,7 @@ class Sudoku {
                 innlestfil[i] = tempchararray;
                 i++;
             }
+
             char[][] ferdigbrett = new char[i][i];
 
             while(j < i){
@@ -70,7 +71,9 @@ class Sudoku {
                 j++;
             }
 
+
             nyttbrett = new Brett(riboks, kiboks, ferdigbrett);
+
             nyttbrett.skrivBrett();
 
         }catch (IOException e){

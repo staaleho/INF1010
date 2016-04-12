@@ -36,50 +36,49 @@ class Brett{
 
     public void skrivBrett() {
         int radteller = 0;
-        int kolonneteller = 0;
-        int understrekteller = -1;
-        int m = -1;
-        while(m < (brettstorrelse + 2)){
-            System.out.print("-");
-            m++;
-        }
-        System.out.println();
-        m = 0;
+        int kolonneteller = 1;
+        int understrekteller = 0;
+        int plussteller = 0;
+        try {
+            for (Rute[] rarr : rutearray) {
+                for (Rute r : rarr) {
+                    if (r.getTall() == 0) {
+                        System.out.print(" ");
+                    } else if (r.getTall() > 9) {
+                        System.out.println(verdiTilTegn(r.getTall(), ' '));
+                    } else {
+                        System.out.print(r.getTall());
 
-        for(Rute[] rarr : rutearray){
-            System.out.print("|");
-            for(Rute r : rarr){
-
-                if(r.getTall() == 0){
-                    System.out.print(" ");
-                }else{
-                    System.out.print(r.getTall());
-                }
-
-                if(kolonneteller == (kiboks - 1)){
-                    System.out.print("|");
-                }
-                kolonneteller++;
-            }
-            System.out.print("|");
-            System.out.println();
-            kolonneteller = 0;
-            radteller++;
-            if(radteller == riboks){
-                while(understrekteller < brettstorrelse + 2){
-                    if(understrekteller == (riboks+1)){
-                        System.out.print("+");
-                    }else{
-                        System.out.print("-");
                     }
-                    understrekteller++;
+                    if (kolonneteller > 1 && kolonneteller % kiboks == 0 && kolonneteller != brettstorrelse) {
+                        System.out.print("|");
+                    }
+                    kolonneteller++;
                 }
                 System.out.println();
-                understrekteller = -1;
-                radteller = 0;
-            }
+                kolonneteller = 0;
+                radteller++;
 
-        }/*
+                if (radteller % riboks == 0 && radteller > 1 && radteller < brettstorrelse) {
+                    while (understrekteller <= brettstorrelse) {
+                        if (plussteller == riboks + 1 && plussteller != brettstorrelse - 1) {
+                            System.out.print("+");
+                            plussteller = 0;
+                            understrekteller++;
+                        } else {
+                            System.out.print("-");
+                            plussteller++;
+                            understrekteller++;
+                        }
+                    }
+                    System.out.println();
+                    understrekteller = 0;
+                    plussteller = 0;
+                }
+                kolonneteller = 1;
+            }
+        }catch(UgyldigVerdiUnntak ug){
+            System.out.println("Ugyldig verdi.");/*
         for(Rute[] rarr : rutearray){
             for(Rute r : rarr){
                 if(r.getTall() == 0){
@@ -108,14 +107,17 @@ class Brett{
             }
 
         }*/
+        }
         rutearray[2][2].getAllRuteInfo();
         System.out.println("Mulige tall er: ");
         for(int i : rutearray[2][2].finnAlleMuligeTall()){
             System.out.println(i);
         }
+
     }
 
     public void opprettDataStruktur(char[][] chararray) throws NumberFormatException{
+
         for(int radid = 0; radid < brettstorrelse; radid++){
             Rad temprad = new Rad(radid, brettstorrelse);
             rader.add(temprad);
@@ -124,6 +126,7 @@ class Brett{
         for(int kolid = 0; kolid < brettstorrelse; kolid++){
             Kolonne tempkol = new Kolonne(kolid, brettstorrelse);
             kolonner.add(tempkol);
+
         }
 
         for(int boksid = 0; boksid < brettstorrelse; boksid++){
@@ -141,14 +144,17 @@ class Brett{
         int kolforboks = 0;
         rutearray = new Rute[brettstorrelse][brettstorrelse];
 
+
         int bokstall = 0;
         int charteller = 0;
 
         Boks nyboks = bokser.get(0);
-
+        System.out.println(chararray[3][0] + " char");
         while(rad < rutearray.length){
+
             for(char c : chararray[rad]){
                 charteller++;
+                System.out.println(c);
                 if(tegnTilVerdi(c) > brettstorrelse){
                     System.out.println("For stort for dette brettet.");
                     throw new NumberFormatException();
@@ -175,12 +181,12 @@ class Brett{
                 temprute.setBoks(nyboks);
                 rutearray[rad][kol] = temprute;
 
-
                 if(temprute.getTall() > brettstorrelse){
                     throw new NumberFormatException();
                 }
 
                 temprute.setBoks(nyboks);
+
 
                 if(temprute.getTall() != 0){
                     nyboks.fjernVerdi(temprute.getTall());
@@ -193,9 +199,9 @@ class Brett{
                 kol++;
             }
             kol = 0;
+
             rad++;
         }
-
 
         int i = 0;
         l = 0;
@@ -218,6 +224,26 @@ class Brett{
             return tegn - 'a' + 39;
         } else {                                    // tegn er ugyldig
             return -1;
+        }
+    }
+
+    public static char verdiTilTegn(int verdi, char tom) throws UgyldigVerdiUnntak{
+        if (verdi == 0) {                           // tom
+            return tom;
+        } else if (1 <= verdi && verdi <= 9) {      // tegn er i [1, 9]
+            return (char) (verdi + '0');
+        } else if (10 <= verdi && verdi <= 35) {    // tegn er i [A, Z]
+            return (char) (verdi + 'A' - 10);
+        } else if (verdi == 36) {                   // tegn er @
+            return '@';
+        } else if (verdi == 37) {                   // tegn er #
+            return '#';
+        } else if (verdi == 38) {                   // tegn er &
+            return '&';
+        } else if (39 <= verdi && verdi <= 64) {    // tegn er i [a, z]
+            return (char) (verdi + 'a' - 39);
+        } else {                                    // tegn er ugyldig
+            throw new UgyldigVerdiUnntak(verdi);    // HUSK DEFINISJON AV UNNTAKSKLASSE
         }
     }
 

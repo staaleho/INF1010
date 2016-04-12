@@ -65,8 +65,11 @@ class Boks{
     }
 
     public void fjernVerdi(int verdi){
-        int fjerneindeks = verdieriboks.indexOf(verdi);
-        verdieriboks.remove(fjerneindeks);
+        Integer intgverdi = verdi;
+        if(verdieriboks.contains(intgverdi)){
+            verdieriboks.remove(intgverdi);
+        }
+
     }
 
     public ArrayList<Integer> ledigeVerdierIBoks(){
