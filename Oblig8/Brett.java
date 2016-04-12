@@ -37,7 +37,7 @@ class Brett{
     public void skrivBrett() {
         int radteller = 0;
         int kolonneteller = 1;
-        int understrekteller = 0;
+        int understrekteller = 1;
         int plussteller = 0;
         try {
             for (Rute[] rarr : rutearray) {
@@ -60,23 +60,23 @@ class Brett{
                 radteller++;
 
                 if (radteller % riboks == 0 && radteller > 1 && radteller < brettstorrelse) {
-                    while (understrekteller <= brettstorrelse) {
-                        if (plussteller == riboks + 1 && plussteller != brettstorrelse - 1) {
+                    while (understrekteller < brettstorrelse+riboks) {
+                        if (understrekteller % (kiboks+1) == 0 && understrekteller > 1) {
                             System.out.print("+");
-                            plussteller = 0;
                             understrekteller++;
                         } else {
                             System.out.print("-");
-                            plussteller++;
                             understrekteller++;
                         }
                     }
+                    understrekteller = 1;
                     System.out.println();
-                    understrekteller = 0;
+
                     plussteller = 0;
                 }
                 kolonneteller = 1;
             }
+            System.out.println("riboks " + riboks);
         }catch(UgyldigVerdiUnntak ug){
             System.out.println("Ugyldig verdi.");/*
         for(Rute[] rarr : rutearray){
