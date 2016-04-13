@@ -2,17 +2,14 @@ import java.util.*;
 import java.io.*;
 import java.util.ArrayList;
 
-
-
 class Sudoku {
     static char TOM_RUTE_TEGN = '.';
     static Brett brett;
 
-
     public static void main(String[] args) {
         lesFil();
     }
-
+    //Filleser. Fanger unntak.
     static private void lesFil() {
         try {
             findFile();
@@ -32,24 +29,26 @@ class Sudoku {
         Reader reader;
         Scanner filscanner;
         Brett nyttbrett;
-
+        //Spor om filnavn
         Scanner in = new Scanner(System.in);
         System.out.println("Hvilken fil vil du lese fra?");
         String filstring = in.nextLine();
 
         try {
+            //Metoden leser en fil linje for linje. To forste linjer
+            //gir brettstorrelse. Deretter splittes linjer inn i et chararray.
             FileReader fis = new FileReader(filstring + ".txt");
             BufferedReader buffreader = new BufferedReader(fis);
             int character;
             int totruter = 0;
-            char[][] innlestfil = new char[63][63];
+            char[][] innlestfil = new char[maksstorrelse][maksstorrelse];
             char[] tempchararray;
 
             String s;
             riboks = Integer.parseInt(buffreader.readLine());
 
             kiboks = Integer.parseInt(buffreader.readLine());
-
+            //Regner ut brettstorrelse, og sjekker om den er for stor for angitt maks.
             brettstorrelse = (riboks * kiboks);
             if((brettstorrelse * brettstorrelse) > (maksstorrelse * maksstorrelse)){
                 throw new IndexOutOfBoundsException();
@@ -71,10 +70,10 @@ class Sudoku {
                 j++;
             }
 
-
             nyttbrett = new Brett(riboks, kiboks, ferdigbrett);
 
             nyttbrett.skrivBrett();
+
 
         }catch (IOException e){
             System.out.println("Filen finnes ikke.");

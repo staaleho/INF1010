@@ -60,33 +60,11 @@ class Rute {
         verdierirute.retainAll(kolonne.ledigeVerdierIKol());
         verdierirute.retainAll(boks.ledigeVerdierIBoks());
 
-
-
-        /*
-        for(int i : rad.ledigeVerdierIRad()){
-            muligetall.add(i);
-            System.out.println("lagt til " + i);
-            System.out.println("storrelse er " + muligetall.size());
-        }
-
-        for(int i : kolonne.ledigeVerdierIKol()){
-            muligetall.add(i);
-            System.out.println("lagt til " + i);
-            System.out.println("storrelse er " + muligetall.size());
-        }
-
-        for(int i : boks.ledigeVerdierIBoks()){
-            muligetall.add(i);
-            System.out.println("lagt til " + i);
-            System.out.println("storrelse er " + muligetall.size());
-        }
-        */
-
         int[] intarray = new int[verdierirute.size()];
         Object[] obar = verdierirute.toArray();
 
         for(int i = 0; i < verdierirute.size(); i++){
-            intarray[i] = (int )obar[i];
+            intarray[i] = (int)obar[i];
         }
 
         return intarray;

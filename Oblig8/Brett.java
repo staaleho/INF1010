@@ -17,6 +17,7 @@ class Brett{
         this.riboks = riboks;
         this.kiboks = kiboks;
         brettstorrelse = riboks * kiboks;
+        //Prover aa opprette et brett, sjekker for ugyldige tegn.
         try{
             opprettDataStruktur(nyttbrett);
         }catch (NumberFormatException n){
@@ -34,6 +35,8 @@ class Brett{
         TOM_RUTE_TEGN = tomRuteTegn;
     }
 
+
+
     public void skrivBrett() {
         int radteller = 0;
         int kolonneteller = 1;
@@ -44,11 +47,10 @@ class Brett{
                 for (Rute r : rarr) {
                     if (r.getTall() == 0) {
                         System.out.print(" ");
-                    } else if (r.getTall() > 9) {
-                        System.out.println(verdiTilTegn(r.getTall(), ' '));
+                    } else if(true ||r.getTall() > 9) {
+                        System.out.print(verdiTilTegn(r.getTall(), ' '));
                     } else {
                         System.out.print(r.getTall());
-
                     }
                     if (kolonneteller > 1 && kolonneteller % kiboks == 0 && kolonneteller != brettstorrelse) {
                         System.out.print("|");
@@ -144,7 +146,6 @@ class Brett{
         int kolforboks = 0;
         rutearray = new Rute[brettstorrelse][brettstorrelse];
 
-
         int bokstall = 0;
         int charteller = 0;
 
@@ -154,7 +155,7 @@ class Brett{
 
             for(char c : chararray[rad]){
                 charteller++;
-                System.out.println(c);
+
                 if(tegnTilVerdi(c) > brettstorrelse){
                     System.out.println("For stort for dette brettet.");
                     throw new NumberFormatException();
@@ -171,7 +172,6 @@ class Brett{
                 Rad temprad = rader.get(rad);
                 Kolonne tempkol = kolonner.get(kol);
                 Rute temprute = new Rute(tegnTilVerdi(c), temprad, tempkol, brettstorrelse);
-
                 while(!(nyboks.settInnVerdi(temprute, rad, kol))){
                     if(bokstall < bokser.size() - 1){
                         bokstall++;
@@ -197,6 +197,7 @@ class Brett{
                 bokstall = 0;
                 nyboks = bokser.get(bokstall);
                 kol++;
+
             }
             kol = 0;
 
